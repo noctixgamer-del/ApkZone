@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Download - APKZONE</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #111;
+}
+
+/* HEADER */
+.top {
+    height: 70px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #16a34a;
+}
+
+/* CONTAINER */
+.container {
+    width: 92%;
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+/* CARD */
+.card {
+    background: #fff;
+    border-radius: 32px;
+    padding: 35px 24px;
+    text-align: center;
+
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+/* ICON */
+.icon-box {
+    width: 160px;
+    height: 160px;
+
+    margin: 0 auto 35px;
+
+    background: #e4f2ff;
+    border-radius: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.icon-box img {
+    width: 125px;
+    height: 125px;
+
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.fallback {
+    font-size: 65px;
+}
+
+/* APP NAME */
+h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #999;
+    font-size: 19px;
+    margin-bottom: 35px;
+}
+
+/* PROGRESS */
+.progress-box {
+    width: 100%;
+    height: 16px;
+
+    background: #e5e5e5;
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+
+    background: #16a34a;
+
+    border-radius: 20px;
+
+    transition: width 0.1s linear;
+}
+
+/* PERCENT */
+.percent {
+    font-size: 36px;
+    font-weight: bold;
+
+    margin: 25px 0;
+}
+
+/* BUTTON */
+.button {
+    display: block;
+    width: 100%;
+
+    padding: 18px 10px;
+
+    margin-top: 12px;
+
+    border: none;
+    border-radius: 18px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+/* PLAY BUTTON */
+.play-button {
+    background: #16a34a;
+    color: white;
+
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.play-button.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* COPY BUTTON */
+.copy-button {
+    background: #e5e7eb;
+    color: #222;
+
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.copy-button.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* BACK */
+.back-button {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #16a34a;
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+/* NOTE */
+.note {
+    margin-top: 25px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+/* MESSAGE */
+.message {
+    margin-top: 15px;
+
+    font-size: 14px;
+
+    color: #16a34a;
+
+    min-height: 20px;
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- HEADER -->
+<div class="top">
+    <div class="logo">
+        APKZONE
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="card">
+
+        <!-- APP ICON -->
+        <div class="icon-box" id="iconBox">
+            <div class="fallback">📱</div>
+        </div>
+
+
+        <!-- APP NAME -->
+        <h1 id="appName">
+            Loading...
+        </h1>
+
+
+        <div class="subtitle">
+            Preparing download...
+        </div>
+
+
+        <!-- PROGRESS -->
+        <div class="progress-box">
+            <div
+                class="progress"
+                id="progress">
+            </div>
+        </div>
+
+
+        <!-- PERCENT -->
+        <div
+            class="percent"
+            id="percent">
+            0%
+        </div>
+
+
+        <!-- PLAY STORE -->
+        <a
+            id="playButton"
+            class="button play-button"
+            href="#"
+        >
+            ▶ OPEN PLAY STORE PAGE
+        </a>
+
+
+        <!-- COPY LINK -->
+        <button
+            id="copyButton"
+            class="button copy-button"
+            type="button"
+        >
+            📋 COPY PLAY STORE LINK
+        </button>
+
+
+        <!-- MESSAGE -->
+        <div
+            class="message"
+            id="message">
+        </div>
+
+
+        <div class="note">
+            Official Google Play Store page.
+            Pro/Premium features, if available,
+            are handled by the official app.
+        </div>
+
+
+        <!-- BACK -->
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            ← Back to Home
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   APP DATA
+========================================= */
+
+const apps = {
+
+    capcut: {
+        name: "CapCut",
+        icon: "Icons/Capcut.jpg",
+        url: "https://play.google.com/store/apps/details?id=com.lemon.lvoverseas"
+    },
+
+    "alight-motion": {
+        name: "Alight Motion",
+        icon: "Icons/alight-motion.png",
+        url: "https://play.google.com/store/apps/details?id=com.alightcreative.motion"
+    },
+
+    kinemaster: {
+        name: "KineMaster",
+        icon: "Icons/kinemaster.png",
+        url: "https://play.google.com/store/apps/details?id=com.nexstreaming.app.kinemasterfree"
+    },
+
+    vn: {
+        name: "VN Video Editor",
+        icon: "Icons/vn.png",
+        url: "https://play.google.com/store/apps/details?id=com.frontrow.vlog"
+    },
+
+    inshot: {
+        name: "InShot",
+        icon: "Icons/inshot.png",
+        url: "https://play.google.com/store/apps/details?id=com.camerasideas.instashot"
+    },
+
+    powerdirector: {
+        name: "PowerDirector",
+        icon: "Icons/powerdirector.png",
+        url: "https://play.google.com/store/apps/details?id=com.cyberlink.powerdirector.DRA140225_01"
+    },
+
+    filmora: {
+        name: "Filmora",
+        icon: "Icons/filmora.png",
+        url: "https://play.google.com/store/apps/details?id=com.wondershare.filmorago"
+    },
+
+    youcut: {
+        name: "YouCut",
+        icon: "Icons/youcut.png",
+        url: "https://play.google.com/store/apps/details?id=com.camerasideas.trimmer"
+    },
+
+    vivavideo: {
+        name: "VivaVideo",
+        icon: "Icons/vivavideo.png",
+        url: "https://play.google.com/store/apps/details?id=com.quvideo.xiaoying"
+    },
+
+    videoshow: {
+        name: "VideoShow",
+        icon: "Icons/videoshow.png",
+        url: "https://play.google.com/store/apps/details?id=com.xvideostudio.videoeditor"
+    },
+
+    picsart: {
+        name: "PicsArt",
+        icon: "Icons/picsart.png",
+        url: "https://play.google.com/store/apps/details?id=com.picsart.studio"
+    },
+
+    canva: {
+        name: "Canva",
+        icon: "Icons/canva.png",
+        url: "https://play.google.com/store/apps/details?id=com.canva.editor"
+    },
+
+    lightroom: {
+        name: "Lightroom",
+        icon: "Icons/lightroom.png",
+        url: "https://play.google.com/store/apps/details?id=com.adobe.lrmobile"
+    },
+
+    snapseed: {
+        name: "Snapseed",
+        icon: "Icons/snapseed.png",
+        url: "https://play.google.com/store/apps/details?id=com.niksoftware.snapseed"
+    },
+
+    photoroom: {
+        name: "PhotoRoom",
+        icon: "Icons/photoroom.png",
+        url: "https://play.google.com/store/apps/details?id=app.photoroom.app"
+    },
+
+    vsco: {
+        name: "VSCO",
+        icon: "Icons/vsco.png",
+        url: "https://play.google.com/store/apps/details?id=com.vsco.cam"
+    }
+
+};
+
+
+/* =========================================
+   GET APP ID
+========================================= */
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const appId =
+    params.get("app");
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const appName =
+    document.getElementById("appName");
+
+const iconBox =
+    document.getElementById("iconBox");
+
+const progress =
+    document.getElementById("progress");
+
+const percent =
+    document.getElementById("percent");
+
+const playButton =
+    document.getElementById("playButton");
+
+const copyButton =
+    document.getElementById("copyButton");
+
+const message =
+    document.getElementById("message");
+
+
+/* =========================================
+   FIND APP
+========================================= */
+
+const app =
+    apps[appId];
+
+
+/* =========================================
+   APP NOT FOUND
+========================================= */
+
+if (!app) {
+
+    appName.textContent =
+        "App Not Found";
+
+    iconBox.innerHTML =
+        '<div class="fallback">❓</div>';
+
+    percent.textContent =
+        "0%";
+
+    playButton.textContent =
+        "← GO TO HOME";
+
+    playButton.href =
+        "index.html";
+
+    playButton.classList.add(
+        "active"
+    );
+
+}
+
+
+/* =========================================
+   APP FOUND
+========================================= */
+
+else {
+
+    /* APP NAME */
+
+    appName.textContent =
+        app.name;
+
+
+    /* APP ICON */
+
+    iconBox.innerHTML = `
+        <img
+            src="${app.icon}"
+            alt="${app.name}"
+            onerror="
+                this.style.display='none';
+            "
+        >
+    `;
+
+
+    /* PLAY STORE LINK */
+
+    playButton.href =
+        app.url;
+
+
+    /*
+       IMPORTANT:
+       No target="_blank"
+       No intent://
+       No market://
+    */
+
+
+    /* =====================================
+       PROGRESS
+    ===================================== */
+
+    let value = 0;
+
+
+    const timer =
+        setInterval(function () {
+
+            value += 2;
+
+
+            progress.style.width =
+                value + "%";
+
+
+            percent.textContent =
+                value + "%";
+
+
+            if (value >= 100) {
+
+                clearInterval(timer);
+
+
+                value = 100;
+
+
+                progress.style.width =
+                    "100%";
+
+
+                percent.textContent =
+                    "100%";
+
+
+                playButton.classList.add(
+                    "active"
+                );
+
+                copyButton.classList.add(
+                    "active"
+                );
+
+
+                playButton.textContent =
+                    "▶ OPEN PLAY STORE PAGE";
+
+            }
+
+        }, 50);
+
+
+    /* =====================================
+       COPY LINK
+    ===================================== */
+
+    copyButton.addEventListener(
+        "click",
+        function () {
+
+            if (!app.url) {
+                return;
+            }
+
+
+            /* Modern clipboard */
+            if (
+                navigator.clipboard &&
+                navigator.clipboard.writeText
+            ) {
+
+                navigator.clipboard
+                    .writeText(app.url)
+                    .then(function () {
+
+                        message.textContent =
+                            "✓ Play Store link copied!";
+
+                    })
+                    .catch(function () {
+
+                        copyFallback();
+
+                    });
+
+            }
+
+            else {
+
+                copyFallback();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================
+       OLD ANDROID COPY FALLBACK
+    ===================================== */
+
+    function copyFallback() {
+
+        const textArea =
+            document.createElement("textarea");
+
+        textArea.value =
+            app.url;
+
+        textArea.style.position =
+            "fixed";
+
+        textArea.style.left =
+            "-9999px";
+
+        document.body.appendChild(
+            textArea
+        );
+
+        textArea.select();
+
+        try {
+
+            document.execCommand(
+                "copy"
+            );
+
+            message.textContent =
+                "✓ Play Store link copied!";
+
+        }
+
+        catch (error) {
+
+            message.textContent =
+                "Copy failed. Long press the link.";
+
+        }
+
+        document.body.removeChild(
+            textArea
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

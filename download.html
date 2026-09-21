@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Download - APKZONE</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f7f7f7;
+    color:#222;
+}
+
+.header{
+    height:78px;
+    background:white;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+}
+
+.back{
+    font-size:32px;
+    text-decoration:none;
+    color:#555;
+}
+
+.logo{
+    font-size:29px;
+    font-weight:bold;
+    color:#58b52f;
+}
+
+.search{
+    font-size:30px;
+}
+
+.container{
+    max-width:650px;
+    margin:auto;
+    padding:25px 20px;
+}
+
+.card{
+    background:white;
+    border-radius:24px;
+    padding:30px 22px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.app-icon{
+    width:105px;
+    height:105px;
+    margin:0 auto 18px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#d9f3ff,#91d5ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:58px;
+}
+
+h1{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.info{
+    background:#f6f6f6;
+    border-radius:15px;
+    padding:16px;
+    margin-bottom:22px;
+    text-align:left;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.info-row:last-child{
+    border-bottom:none;
+}
+
+.label{
+    color:#777;
+}
+
+.value{
+    font-weight:bold;
+}
+
+.download{
+    display:block;
+    width:100%;
+    padding:17px;
+    background:#55b934;
+    color:white;
+    text-decoration:none;
+    border-radius:14px;
+    font-size:19px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.download:hover{
+    background:#479d2e;
+}
+
+.note{
+    font-size:13px;
+    color:#777;
+    line-height:1.5;
+    margin-top:18px;
+}
+
+.home{
+    display:block;
+    text-align:center;
+    color:#55a735;
+    text-decoration:none;
+    margin-top:25px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="back">←</a>
+
+    <div class="logo">
+        APKZONE
+    </div>
+
+    <div class="search">
+        🔎
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="card">
+
+        <div class="app-icon" id="appIcon">
+            📱
+        </div>
+
+        <h1 id="appName">
+            App
+        </h1>
+
+        <p class="subtitle">
+            Ready to download
+        </p>
+
+
+        <div class="info">
+
+            <div class="info-row">
+                <span class="label">App</span>
+                <span class="value" id="infoName">
+                    App
+                </span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Version</span>
+                <span class="value" id="version">
+                    1.0.0
+                </span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Size</span>
+                <span class="value" id="size">
+                    100 MB
+                </span>
+            </div>
+
+            <div class="info-row">
+                <span class="label">Category</span>
+                <span class="value" id="category">
+                    App
+                </span>
+            </div>
+
+        </div>
+
+
+        <a href="#" class="download" id="downloadButton">
+            ↓ DOWNLOAD APK
+        </a>
+
+
+        <p class="note">
+            Download only APK files that you own
+            or are authorized to distribute.
+        </p>
+
+    </div>
+
+
+    <a href="index.html" class="home">
+        ← Back to APKZONE
+    </a>
+
+</main>
+
+
+<script>
+
+const apps = {
+
+    "capcut":{
+        name:"CapCut",
+        icon:"🎬",
+        version:"14.0.0",
+        size:"100 MB",
+        category:"Video Editor"
+    },
+
+    "alight-motion":{
+        name:"Alight Motion",
+        icon:"✨",
+        version:"5.0.0",
+        size:"130 MB",
+        category:"Video Editor"
+    },
+
+    "kinemaster":{
+        name:"KineMaster",
+        icon:"🎥",
+        version:"7.0.0",
+        size:"95 MB",
+        category:"Video Editor"
+    },
+
+    "vn":{
+        name:"VN Video Editor",
+        icon:"🎞️",
+        version:"2.0.0",
+        size:"120 MB",
+        category:"Video Editor"
+    },
+
+    "inshot":{
+        name:"InShot",
+        icon:"✂️",
+        version:"2.0.0",
+        size:"90 MB",
+        category:"Video Editor"
+    },
+
+    "gunship":{
+        name:"Gunship Battle",
+        icon:"✈️",
+        version:"9.1.5",
+        size:"100 MB",
+        category:"Action Game"
+    },
+
+    "powerdirector":{
+        name:"PowerDirector",
+        icon:"🎞️",
+        version:"15.0.0",
+        size:"110 MB",
+        category:"Video Editor"
+    },
+
+    "filmora":{
+        name:"Filmora",
+        icon:"🎥",
+        version:"13.0.0",
+        size:"120 MB",
+        category:"Video Editor"
+    },
+
+    "youcut":{
+        name:"YouCut",
+        icon:"✂️",
+        version:"4.0.0",
+        size:"85 MB",
+        category:"Video Editor"
+    },
+
+    "vivavideo":{
+        name:"VivaVideo",
+        icon:"🎬",
+        version:"9.0.0",
+        size:"100 MB",
+        category:"Video Editor"
+    },
+
+    "videoshow":{
+        name:"VideoShow",
+        icon:"🎞️",
+        version:"10.0.0",
+        size:"90 MB",
+        category:"Video Editor"
+    },
+
+    "picsart":{
+        name:"PicsArt",
+        icon:"🎨",
+        version:"25.0.0",
+        size:"100 MB",
+        category:"Photo Editor"
+    },
+
+    "canva":{
+        name:"Canva",
+        icon:"🖌️",
+        version:"2.0.0",
+        size:"80 MB",
+        category:"Design Editor"
+    },
+
+    "lightroom":{
+        name:"Lightroom",
+        icon:"📷",
+        version:"10.0.0",
+        size:"150 MB",
+        category:"Photo Editor"
+    },
+
+    "snapseed":{
+        name:"Snapseed",
+        icon:"🖼️",
+        version:"2.0.0",
+        size:"75 MB",
+        category:"Photo Editor"
+    },
+
+    "photoroom":{
+        name:"PhotoRoom",
+        icon:"📸",
+        version:"5.0.0",
+        size:"100 MB",
+        category:"Photo Editor"
+    }
+
+};
+
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const appId =
+    params.get("app") || "capcut";
+
+const app =
+    apps[appId] || apps["capcut"];
+
+
+document.title =
+    "Download " + app.name + " - APKZONE";
+
+
+document.getElementById("appIcon").textContent =
+    app.icon;
+
+document.getElementById("appName").textContent =
+    app.name;
+
+document.getElementById("infoName").textContent =
+    app.name;
+
+document.getElementById("version").textContent =
+    app.version;
+
+document.getElementById("size").textContent =
+    app.size;
+
+document.getElementById("category").textContent =
+    app.category;
+
+
+/*
+   अगले page को वही app बताना
+*/
+
+document.getElementById("downloadButton").href =
+    "ready.html?app=" + encodeURIComponent(appId);
+
+</script>
+
+</body>
+</html>

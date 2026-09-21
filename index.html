@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>APKZONE</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f7f7f7;
+    color:#222;
+    padding-bottom:100px;
+}
+
+
+/* ================= HEADER ================= */
+
+.header{
+    height:105px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 35px;
+    border-bottom:1px solid #ddd;
+}
+
+.menu{
+    font-size:45px;
+    cursor:pointer;
+    width:60px;
+}
+
+.logo{
+    font-size:42px;
+    font-weight:bold;
+    color:#4caf35;
+    text-align:center;
+}
+
+.search-btn{
+    border:none;
+    background:none;
+    font-size:45px;
+    cursor:pointer;
+    width:60px;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-area{
+    display:none;
+    background:white;
+    padding:12px 25px;
+    border-bottom:1px solid #ddd;
+}
+
+.search-area input{
+    width:100%;
+    padding:14px 18px;
+    border:1px solid #ddd;
+    border-radius:25px;
+    outline:none;
+    font-size:18px;
+}
+
+
+/* ================= TITLE ================= */
+
+.title{
+    font-size:32px;
+    font-weight:bold;
+    padding:0 38px;
+    margin-top:0;
+    margin-bottom:25px;
+}
+
+
+/* ================= APP GRID ================= */
+
+.apps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px 12px;
+    padding:0 38px 30px;
+}
+
+.app-link{
+    text-decoration:none;
+    color:inherit;
+    min-width:0;
+}
+
+.app-card{
+    width:100%;
+    text-align:center;
+}
+
+
+/* SAME SIZE ICON BOX */
+
+.app-icon{
+    width:100%;
+    height:135px;
+    min-height:135px;
+
+    border-radius:25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:48px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+
+/* SAME NAME AREA */
+
+.app-name{
+    font-size:18px;
+    font-weight:bold;
+
+    margin-top:15px;
+
+    height:44px;
+    min-height:44px;
+
+    line-height:22px;
+
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+
+/* SAME TYPE AREA */
+
+.app-type{
+    font-size:15px;
+    color:#888;
+
+    margin-top:8px;
+
+    height:20px;
+    min-height:20px;
+
+    line-height:20px;
+}
+
+
+/* ================= NO RESULT ================= */
+
+.no-result{
+    display:none;
+
+    text-align:center;
+
+    font-size:20px;
+    color:#888;
+
+    padding:30px;
+}
+
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:100px;
+
+    background:white;
+
+    border-top:1px solid #ddd;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    z-index:1000;
+}
+
+.nav-item{
+    text-align:center;
+    color:#aaa;
+    font-size:16px;
+}
+
+.nav-icon{
+    display:block;
+    font-size:32px;
+    margin-bottom:5px;
+}
+
+.nav-item.active{
+    color:#4caf35;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .header{
+        height:105px;
+        padding:0 35px;
+    }
+
+    .logo{
+        font-size:40px;
+    }
+
+    .menu{
+        font-size:42px;
+    }
+
+    .search-btn{
+        font-size:42px;
+    }
+
+    .title{
+        font-size:30px;
+        padding:0 38px;
+        margin-bottom:25px;
+    }
+
+    .apps{
+        grid-template-columns:repeat(4,1fr);
+
+        gap:28px 12px;
+
+        padding:0 38px 30px;
+    }
+
+    .app-icon{
+        height:135px;
+        min-height:135px;
+        border-radius:25px;
+        font-size:48px;
+    }
+
+    .app-name{
+        font-size:18px;
+        height:44px;
+        min-height:44px;
+        line-height:22px;
+    }
+
+    .app-type{
+        font-size:15px;
+        height:20px;
+        min-height:20px;
+    }
+
+}
+
+
+/* VERY SMALL PHONE */
+
+@media(max-width:380px){
+
+    .header{
+        padding:0 20px;
+    }
+
+    .logo{
+        font-size:32px;
+    }
+
+    .menu{
+        font-size:36px;
+    }
+
+    .search-btn{
+        font-size:36px;
+    }
+
+    .title{
+        padding:0 20px;
+        font-size:26px;
+    }
+
+    .apps{
+        padding-left:20px;
+        padding-right:20px;
+        gap:25px 8px;
+    }
+
+    .app-icon{
+        height:105px;
+        min-height:105px;
+        font-size:38px;
+        border-radius:20px;
+    }
+
+    .app-name{
+        font-size:15px;
+        height:40px;
+        min-height:40px;
+        line-height:20px;
+    }
+
+    .app-type{
+        font-size:12px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="menu">
+        ☰
+    </div>
+
+    <div class="logo">
+        APKZONE
+    </div>
+
+    <!-- ONLY SEARCH ICON -->
+
+    <button
+        class="search-btn"
+        id="searchBtn"
+        aria-label="Search">
+
+        🔎
+
+    </button>
+
+</header>
+
+
+
+<!-- ================= SEARCH BOX ================= -->
+
+<div
+    class="search-area"
+    id="searchArea">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search apps..."
+        autocomplete="off">
+
+</div>
+
+
+
+<!-- ================= TITLE ================= -->
+
+<h2 class="title">
+    🎮 Latest Apps
+</h2>
+
+
+
+<!-- ================= APPS ================= -->
+
+<div
+    class="apps"
+    id="appList">
+
+
+    <!-- 1 CAPCUT -->
+
+    <a
+        class="app-link"
+        href="app.html?app=capcut">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#dceeff;">
+
+                🎬
+
+            </div>
+
+            <div class="app-name">
+                CapCut
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 2 ALIGHT MOTION -->
+
+    <a
+        class="app-link"
+        href="app.html?app=alight-motion">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ffdcae;">
+
+                ✨
+
+            </div>
+
+            <div class="app-name">
+                Alight Motion
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 3 KINEMASTER -->
+
+    <a
+        class="app-link"
+        href="app.html?app=kinemaster">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#c9f3f5;">
+
+                🎥
+
+            </div>
+
+            <div class="app-name">
+                KineMaster
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 4 VN -->
+
+    <a
+        class="app-link"
+        href="app.html?app=vn">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ded0ff;">
+
+                🎞️
+
+            </div>
+
+            <div class="app-name">
+                VN Video Editor
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 5 INSHOT -->
+
+    <a
+        class="app-link"
+        href="app.html?app=inshot">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#eeeeee;">
+
+                ✂️
+
+            </div>
+
+            <div class="app-name">
+                InShot
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 6 GUNSHIP -->
+
+    <a
+        class="app-link"
+        href="app.html?app=gunship-battle">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ccecff;">
+
+                ✈️
+
+            </div>
+
+            <div class="app-name">
+                Gunship Battle
+            </div>
+
+            <div class="app-type">
+                Action Game
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 7 POWERDIRECTOR -->
+
+    <a
+        class="app-link"
+        href="app.html?app=powerdirector">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#cce3ff;">
+
+                🎞️
+
+            </div>
+
+            <div class="app-name">
+                PowerDirector
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 8 FILMORA -->
+
+    <a
+        class="app-link"
+        href="app.html?app=filmora">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ffe0a8;">
+
+                🎥
+
+            </div>
+
+            <div class="app-name">
+                Filmora
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 9 YOUCUT -->
+
+    <a
+        class="app-link"
+        href="app.html?app=youcut">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ffd0dc;">
+
+                ✂️
+
+            </div>
+
+            <div class="app-name">
+                YouCut
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 10 VIVAVIDEO -->
+
+    <a
+        class="app-link"
+        href="app.html?app=vivavideo">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#dddddd;">
+
+                🎬
+
+            </div>
+
+            <div class="app-name">
+                VivaVideo
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 11 VIDEOSHOW -->
+
+    <a
+        class="app-link"
+        href="app.html?app=videoshow">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ead5ff;">
+
+                🎞️
+
+            </div>
+
+            <div class="app-name">
+                VideoShow
+            </div>
+
+            <div class="app-type">
+                Video Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 12 PICSART -->
+
+    <a
+        class="app-link"
+        href="app.html?app=picsart">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ccefc9;">
+
+                🎨
+
+            </div>
+
+            <div class="app-name">
+                PicsArt
+            </div>
+
+            <div class="app-type">
+                Photo Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 13 CANVA -->
+
+    <a
+        class="app-link"
+        href="app.html?app=canva">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ddd2ff;">
+
+                🖌️
+
+            </div>
+
+            <div class="app-name">
+                Canva
+            </div>
+
+            <div class="app-type">
+                Design App
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 14 LIGHTROOM -->
+
+    <a
+        class="app-link"
+        href="app.html?app=lightroom">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#c9eeee;">
+
+                📷
+
+            </div>
+
+            <div class="app-name">
+                Lightroom
+            </div>
+
+            <div class="app-type">
+                Photo Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 15 SNAPSEED -->
+
+    <a
+        class="app-link"
+        href="app.html?app=snapseed">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#ffdcb8;">
+
+                🖼️
+
+            </div>
+
+            <div class="app-name">
+                Snapseed
+            </div>
+
+            <div class="app-type">
+                Photo Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 16 PHOTOROOM -->
+
+    <a
+        class="app-link"
+        href="app.html?app=photoroom">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#dddddd;">
+
+                📷
+
+            </div>
+
+            <div class="app-name">
+                PhotoRoom
+            </div>
+
+            <div class="app-type">
+                Photo Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- 17 VSCO -->
+
+    <a
+        class="app-link"
+        href="app.html?app=vsco">
+
+        <div class="app-card">
+
+            <div
+                class="app-icon"
+                style="background:#e0d5ff;">
+
+                📸
+
+            </div>
+
+            <div class="app-name">
+                VSCO
+            </div>
+
+            <div class="app-type">
+                Photo Editor
+            </div>
+
+        </div>
+
+    </a>
+
+
+</div>
+
+
+
+<!-- NO RESULT -->
+
+<div
+    class="no-result"
+    id="noResult">
+
+    No app found 😕
+
+</div>
+
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<div class="bottom-nav">
+
+    <div class="nav-item active">
+
+        <span class="nav-icon">
+            ⌂
+        </span>
+
+        Home
+
+    </div>
+
+
+    <div class="nav-item">
+
+        <span class="nav-icon">
+            ○
+        </span>
+
+        Apps
+
+    </div>
+
+
+    <div class="nav-item">
+
+        <span class="nav-icon">
+            🎮
+        </span>
+
+        Games
+
+    </div>
+
+
+    <div class="nav-item">
+
+        <span class="nav-icon">
+            🔥
+        </span>
+
+        News
+
+    </div>
+
+
+    <div class="nav-item">
+
+        <span class="nav-icon">
+            ☺
+        </span>
+
+        Browse
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+const searchBtn =
+    document.getElementById("searchBtn");
+
+const searchArea =
+    document.getElementById("searchArea");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const appCards =
+    document.querySelectorAll(".app-link");
+
+const noResult =
+    document.getElementById("noResult");
+
+
+/* SEARCH ICON */
+
+searchBtn.addEventListener("click", function(){
+
+    if(searchArea.style.display === "block"){
+
+        searchArea.style.display = "none";
+
+    }else{
+
+        searchArea.style.display = "block";
+
+        searchInput.focus();
+
+    }
+
+});
+
+
+/* LIVE SEARCH */
+
+searchInput.addEventListener("input", function(){
+
+    const text =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+    let found = 0;
+
+
+    appCards.forEach(function(card){
+
+        const name =
+            card.innerText.toLowerCase();
+
+
+        if(name.includes(text)){
+
+            card.style.display = "";
+
+            found++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    if(found === 0){
+
+        noResult.style.display = "block";
+
+    }else{
+
+        noResult.style.display = "none";
+
+    }
+
+});
+
+
+/* ENTER */
+
+searchInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            searchInput.blur();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>APKZONE - App Details</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f7f7f7;
+    color:#222;
+    padding-bottom:30px;
+}
+
+.header{
+    height:78px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    border-bottom:1px solid #ddd;
+}
+
+.back{
+    font-size:32px;
+    text-decoration:none;
+    color:#555;
+}
+
+.logo{
+    font-size:29px;
+    font-weight:bold;
+    color:#58b52f;
+}
+
+.search{
+    font-size:32px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+    padding:20px;
+}
+
+.breadcrumb{
+    color:#777;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.breadcrumb a{
+    color:#58b52f;
+    text-decoration:none;
+}
+
+.app-header{
+    background:white;
+    border-radius:22px;
+    padding:24px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
+
+.app-icon{
+    width:105px;
+    height:105px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#cce9ff,#7bc9ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:58px;
+    flex-shrink:0;
+}
+
+.app-title h1{
+    font-size:26px;
+    margin-bottom:8px;
+}
+
+.developer{
+    color:#777;
+    font-size:15px;
+    margin-bottom:7px;
+}
+
+.rating{
+    color:#f4a900;
+    font-size:21px;
+}
+
+.info-box,
+.download-box,
+.description{
+    background:white;
+    border-radius:20px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.info-title,
+.description h2{
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.info-row:last-child{
+    border-bottom:none;
+}
+
+.label{
+    color:#777;
+}
+
+.value{
+    font-weight:bold;
+}
+
+.download-box{
+    text-align:center;
+}
+
+.download-box h2{
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+.download-box p{
+    color:#777;
+    margin-bottom:20px;
+}
+
+.download{
+    display:block;
+    width:100%;
+    padding:17px;
+    border-radius:14px;
+    background:#55b934;
+    color:white;
+    text-decoration:none;
+    font-size:19px;
+    font-weight:bold;
+}
+
+.download:hover{
+    background:#479d2e;
+}
+
+.description p{
+    color:#555;
+    line-height:1.6;
+}
+
+.home-link{
+    display:block;
+    text-align:center;
+    color:#55a735;
+    text-decoration:none;
+    font-weight:bold;
+    padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="index.html" class="back">←</a>
+
+    <div class="logo">
+        APKZONE
+    </div>
+
+    <div class="search">
+        🔎
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        &nbsp; / &nbsp;
+        <span id="breadcrumbName">App</span>
+    </div>
+
+
+    <section class="app-header">
+
+        <div class="app-icon" id="appIcon">
+            📱
+        </div>
+
+        <div class="app-title">
+
+            <h1 id="appName">
+                App
+            </h1>
+
+            <div class="developer" id="developer">
+                Developer
+            </div>
+
+            <div class="rating">
+                ★★★★★
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="info-box">
+
+        <div class="info-title">
+            App Information
+        </div>
+
+        <div class="info-row">
+            <span class="label">Version</span>
+            <span class="value" id="version">
+                1.0.0
+            </span>
+        </div>
+
+        <div class="info-row">
+            <span class="label">Size</span>
+            <span class="value" id="size">
+                100 MB
+            </span>
+        </div>
+
+        <div class="info-row">
+            <span class="label">Category</span>
+            <span class="value" id="category">
+                App
+            </span>
+        </div>
+
+        <div class="info-row">
+            <span class="label">Android</span>
+            <span class="value">
+                5.0+
+            </span>
+        </div>
+
+    </section>
+
+
+    <section class="download-box">
+
+        <h2 id="downloadTitle">
+            Download App
+        </h2>
+
+        <p id="downloadText">
+            APK file
+        </p>
+
+        <a href="#" class="download" id="downloadButton">
+            ↓ Download APK
+        </a>
+
+    </section>
+
+
+    <section class="description">
+
+        <h2>
+            About this app
+        </h2>
+
+        <p id="description">
+            App information will appear here.
+        </p>
+
+    </section>
+
+
+    <section class="description">
+
+        <h2>
+            APK Information
+        </h2>
+
+        <p>
+            Download only APK files that you own
+            or are authorized to distribute.
+        </p>
+
+    </section>
+
+
+    <a href="index.html" class="home-link">
+        ← Back to Home
+    </a>
+
+</main>
+
+
+<script>
+
+const apps = {
+
+    "capcut":{
+        name:"CapCut",
+        developer:"ByteDance",
+        icon:"🎬",
+        version:"14.0.0",
+        size:"100 MB",
+        category:"Video Editor",
+        file:"capcut.apk",
+        description:"Video editing application for creating and editing videos."
+    },
+
+    "alight-motion":{
+        name:"Alight Motion",
+        developer:"Alight Creative",
+        icon:"✨",
+        version:"5.0.0",
+        size:"130 MB",
+        category:"Video Editor",
+        file:"alight-motion.apk",
+        description:"Video editing and motion graphics application."
+    },
+
+    "kinemaster":{
+        name:"KineMaster",
+        developer:"KineMaster Corporation",
+        icon:"🎥",
+        version:"7.0.0",
+        size:"95 MB",
+        category:"Video Editor",
+        file:"kinemaster.apk",
+        description:"Video editor with tools for creating and editing videos."
+    },
+
+    "vn":{
+        name:"VN Video Editor",
+        developer:"Ubiquiti Labs",
+        icon:"🎞️",
+        version:"2.0.0",
+        size:"120 MB",
+        category:"Video Editor",
+        file:"vn.apk",
+        description:"Video editing application with multiple editing tools."
+    },
+
+    "inshot":{
+        name:"InShot",
+        developer:"InShot Inc.",
+        icon:"✂️",
+        version:"2.0.0",
+        size:"90 MB",
+        category:"Video Editor",
+        file:"inshot.apk",
+        description:"Video and photo editing application."
+    },
+
+    "gunship":{
+        name:"Gunship Battle",
+        developer:"JOYCITY Corp.",
+        icon:"✈️",
+        version:"9.1.5",
+        size:"100 MB",
+        category:"Action Game",
+        file:"gunship-battle.apk",
+        description:"Action game featuring military aircraft and strategic gameplay."
+    },
+
+    "powerdirector":{
+        name:"PowerDirector",
+        developer:"CyberLink",
+        icon:"🎞️",
+        version:"15.0.0",
+        size:"110 MB",
+        category:"Video Editor",
+        file:"powerdirector.apk",
+        description:"Video editing application."
+    },
+
+    "filmora":{
+        name:"Filmora",
+        developer:"Wondershare",
+        icon:"🎥",
+        version:"13.0.0",
+        size:"120 MB",
+        category:"Video Editor",
+        file:"filmora.apk",
+        description:"Video editing application with creative editing tools."
+    },
+
+    "youcut":{
+        name:"YouCut",
+        developer:"InShot Inc.",
+        icon:"✂️",
+        version:"4.0.0",
+        size:"85 MB",
+        category:"Video Editor",
+        file:"youcut.apk",
+        description:"Simple video editing application."
+    },
+
+    "vivavideo":{
+        name:"VivaVideo",
+        developer:"QuVideo",
+        icon:"🎬",
+        version:"9.0.0",
+        size:"100 MB",
+        category:"Video Editor",
+        file:"vivavideo.apk",
+        description:"Video editing application."
+    },
+
+    "videoshow":{
+        name:"VideoShow",
+        developer:"VideoShow",
+        icon:"🎞️",
+        version:"10.0.0",
+        size:"90 MB",
+        category:"Video Editor",
+        file:"videoshow.apk",
+        description:"Video editing and video creation application."
+    },
+
+    "picsart":{
+        name:"PicsArt",
+        developer:"PicsArt",
+        icon:"🎨",
+        version:"25.0.0",
+        size:"100 MB",
+        category:"Photo Editor",
+        file:"picsart.apk",
+        description:"Photo and creative editing application."
+    },
+
+    "canva":{
+        name:"Canva",
+        developer:"Canva",
+        icon:"🖌️",
+        version:"2.0.0",
+        size:"80 MB",
+        category:"Design Editor",
+        file:"canva.apk",
+        description:"Design application for creating graphics and visual content."
+    },
+
+    "lightroom":{
+        name:"Lightroom",
+        developer:"Adobe",
+        icon:"📷",
+        version:"10.0.0",
+        size:"150 MB",
+        category:"Photo Editor",
+        file:"lightroom.apk",
+        description:"Photo editing and organization application."
+    },
+
+    "snapseed":{
+        name:"Snapseed",
+        developer:"Google",
+        icon:"🖼️",
+        version:"2.0.0",
+        size:"75 MB",
+        category:"Photo Editor",
+        file:"snapseed.apk",
+        description:"Photo editing application."
+    },
+
+    "photoroom":{
+        name:"PhotoRoom",
+        developer:"PhotoRoom",
+        icon:"📸",
+        version:"5.0.0",
+        size:"100 MB",
+        category:"Photo Editor",
+        file:"photoroom.apk",
+        description:"Photo editing and background removal application."
+    }
+
+};
+
+
+const params = new URLSearchParams(window.location.search);
+
+const appId = params.get("app") || "capcut";
+
+const app = apps[appId] || apps["capcut"];
+
+
+document.title =
+    app.name + " - APKZONE";
+
+
+document.getElementById("appName").textContent =
+    app.name;
+
+document.getElementById("breadcrumbName").textContent =
+    app.name;
+
+document.getElementById("developer").textContent =
+    app.developer;
+
+document.getElementById("appIcon").textContent =
+    app.icon;
+
+document.getElementById("version").textContent =
+    app.version;
+
+document.getElementById("size").textContent =
+    app.size;
+
+document.getElementById("category").textContent =
+    app.category;
+
+document.getElementById("downloadTitle").textContent =
+    "Download " + app.name;
+
+document.getElementById("downloadText").textContent =
+    app.name + " v" + app.version + " APK";
+
+document.getElementById("description").textContent =
+    app.description;
+
+
+/*
+   Download page को app की जानकारी भेजना
+*/
+
+const downloadButton =
+    document.getElementById("downloadButton");
+
+downloadButton.href =
+    "download.html?app=" + encodeURIComponent(appId);
+
+</script>
+
+</body>
+</html>
